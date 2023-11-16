@@ -1,5 +1,6 @@
 # Dictionary-Attack-with-Burp-Suite-Hydra-and-ZAProxy
 How perform the dictionary attack with Burp Suite, Hydra and ZAProxy? Let's see
+I show only the important steps required to complete the goal, so i don't explain everything.
 # Introduction of the tools
 ## Burp Suite
 Burp Suite is a platform for web application security testing, vulnerability scanning, and penetration testing. It is written in Java and developed by PortSwigger, a company founded by Dafydd Stuttard. Burp Suite helps to identify and validate vulnerabilities and attack vectors that affect web applications. It is widely used by security professionals and penetration testers to evaluate the security of web applications.
@@ -21,3 +22,18 @@ Hydra is a tool for pentesting that allows you to perform brute-force attacks on
 ZAProxy is a web application security testing tool that can help you find and fix vulnerabilities in your web applications. It is free and open source, and it is maintained by a dedicated international team of volunteers. ZAProxy can be used to scan web applications for common security issues, such as SQL injection, cross-site scripting, broken authentication, and more. It can also be used to intercept and modify web traffic, perform active and passive scanning, spider web applications, and generate reports.
 <br>
 ZAProxy is designed to be easy to use, even for people who are new to security testing. It has a graphical user interface, a command-line interface, and a web interface. It also supports various automation options, such as scripting, API, and Docker . ZAProxy can be extended with add-ons that provide additional functionality, such as fuzzing, authentication, and AJAX support.
+
+## Dictionary Attack with Burp Suite
+We perform the attack on bWAPP. <br>
+### Goal: Get the credentials and access the bWAPP/basic directory. <br>
+Use nmap to scan the network and identify the ports that are running the http and mysql services. The ports must be OPEN.<br>
+1) In the Browser turn on foxy proxy and open the Burp Suite App<br>
+2) Insert random credentials to intercept the http request GET on Burp and send it to the intruder. In Positions tab u can select the Payload for decode it (check the type of decoding).<br>
+<img src="request.png" swidth=6000 height=160><br>
+3) Use the add button to replace the credentials in the http request with a parameter<br>
+<img src="request_wvar.png" swidth=25000 height=330><br>
+4) Navigate to the Payloads tab and load the wordlist of passwords. In Payload Processing, add the Prefix "admin:" and the encoding option<br>
+5) Click the button Start attack!<br><br>
+
+If your wordlist matches, u will get the status code 200 or 301, check the response and send it to the decoder. Finaly, u can decode the payload to have explicit credentials. <br>
+<img src="result.png" swidth=12000 height=200><br>
