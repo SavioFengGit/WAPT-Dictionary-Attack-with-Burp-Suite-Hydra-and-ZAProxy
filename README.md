@@ -1,5 +1,5 @@
 # Dictionary-Attack-with-Burp-Suite-Hydra-and-ZAProxy
-How perform the dictionary attack with Burp Suite, Hydra and ZAProxy? Let's see <br>
+How to perform a dictionary attack with Burp Suite, Hydra and ZAProxy? Let's see <br>
 I show only the important steps required to perform the attack, so i don't explain everything.
 # Introduction of the tools
 ## Burp Suite
