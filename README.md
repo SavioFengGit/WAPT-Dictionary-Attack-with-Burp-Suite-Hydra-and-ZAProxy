@@ -41,10 +41,26 @@ If your wordlist matches, u will get the status code 200 or 301, check the respo
 ## Dictionary Attack with Hydra
 We perform the attack on bWAPP. <br>
 ### Goal: Get the credentials. <br>
-We need the username and password variables to perform dictionary attack with Hydra. Analyze the html page to search the variables. Create two files, one with usernames and one with the passwords.
+Use nmap to scan the network and identify the ports that are running the http and mysql services. The ports must be OPEN.
+We need the username and password variables to perform dictionary attack with Hydra. <br>
+1) Analyze the html page to search the variables and create two files, one with usernames and one with the passwords.
 <br>
 <img src="html_login.png" swidth=11000 height=190><br>
-#### Use the command <br>
-- hydra -L "wordlist_username -P "wordlist_password" "ip-webapp" http-post-form "/login.php:login=^USER^&password=^PASS^&security_level=0&form=submit:Invalid!" <br>
-If something matches, u will get a valid password.<br>
-<img src="result1.png" swidth=6000 height=100><br>
+2) Perform the attack, (placeholder will take the value from the wordlist) <br>
+Use the command: - hydra -L "wordlist_username" -P "wordlist_password" "ip-webapp" http-post-form "/login.php:login=^USER^&password=^PASS^&security_level=0&form=submit:Invalid!" <br>
+If something matches, u will get a valid password. <br>
+<img src="result1.png" swidth=4000 height=70><br>
+
+## Dictionary Attack with ZAProxy
+We perform the attack on bWAPP. <br>
+### Goal: Get the credentials. <br>
+Use nmap to scan the network and identify the ports that are running the http and mysql services. The ports must be OPEN.<br>
+1) Launch owasp ZAP application and insert random credentials to the login form to get the http request.<br>
+2) Navigate to the directory js in sites tab and click on the http POST request -> right click-> attack -> fuzzer.<br>
+<img src="loginzap.png" swidth=16000 height=220><br>
+3) Select the value of the login variable and click the add button to add your personal wordlist<br>
+4) Select the value of the password variable and click the add button to add your personal wordlist<br>
+5) Click Start Fuzzer
+<br>
+If something matches, u will get a status code 200 or 302, the credentials are in the payload column.<br>
+<img src="result2.png" swidth=17000 height=220><br>
