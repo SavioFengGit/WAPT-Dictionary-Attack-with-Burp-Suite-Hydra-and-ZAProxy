@@ -64,3 +64,6 @@ Use nmap to scan the network and identify the ports that are running the http an
 <br>
 If something matches, u will get a status code 200 or 302, the credentials are in the payload column.<br>
 <img src="result2.png" swidth=17000 height=220><br>
+
+#Author
+Xiao Li Savio Feng
