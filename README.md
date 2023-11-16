@@ -37,3 +37,14 @@ Use nmap to scan the network and identify the ports that are running the http an
 
 If your wordlist matches, u will get the status code 200 or 301, check the response and send it to the decoder. Finaly, u can decode the payload to have explicit credentials. <br>
 <img src="result.png" swidth=12000 height=200><br>
+
+## Dictionary Attack with Hydra
+We perform the attack on bWAPP. <br>
+### Goal: Get the credentials. <br>
+We need the username and password variables to perform dictionary attack with Hydra. Analyze the html page to search the variables. Create two files, one with usernames and one with the passwords.
+<br>
+<img src="html_login.png" swidth=11000 height=190><br>
+#### Use the command <br>
+- hydra -L "wordlist_username -P "wordlist_password" "ip-webapp" http-post-form "/login.php:login=^USER^&password=^PASS^&security_level=0&form=submit:Invalid!" <br>
+If something matches, u will get a valid password.<br>
+<img src="result1.png" swidth=6000 height=100><br>
