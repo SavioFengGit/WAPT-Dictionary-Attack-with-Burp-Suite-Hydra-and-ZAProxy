@@ -1,6 +1,6 @@
 # Dictionary-Attack-with-Burp-Suite-Hydra-and-ZAProxy
 How to perform a dictionary attack with Burp Suite, Hydra and ZAProxy? Let's see <br>
-I show only the important steps required to perform the attack, so i don't explain everything.
+I show only the important steps required to perform the attack, so i did't explain everything.
 # Introduction of the tools
 ## Burp Suite
 Burp Suite is a platform for web application security testing, vulnerability scanning, and penetration testing. It is written in Java and developed by PortSwigger, a company founded by Dafydd Stuttard. Burp Suite helps to identify and validate vulnerabilities and attack vectors that affect web applications. It is widely used by security professionals and penetration testers to evaluate the security of web applications.
