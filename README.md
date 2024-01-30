@@ -22,7 +22,8 @@ Hydra is a tool for pentesting that allows you to perform brute-force attacks on
 ZAProxy is a web application security testing tool that can help you find and fix vulnerabilities in your web applications. It is free and open source, and it is maintained by a dedicated international team of volunteers. ZAProxy can be used to scan web applications for common security issues, such as SQL injection, cross-site scripting, broken authentication, and more. It can also be used to intercept and modify web traffic, perform active and passive scanning, spider web applications, and generate reports.
 <br>
 ZAProxy is designed to be easy to use, even for people who are new to security testing. It has a graphical user interface, a command-line interface, and a web interface. It also supports various automation options, such as scripting, API, and Docker . ZAProxy can be extended with add-ons that provide additional functionality, such as fuzzing, authentication, and AJAX support.
-
+<br>
+<img src="zap.png" width=70% height="auto"><br><br>
 ## Dictionary Attack with Burp Suite
 We perform the attack on bWAPP. <br>
 ### Goal: Get the credentials and access the bWAPP/basic directory. <br>
