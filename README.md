@@ -33,14 +33,14 @@ We perform the attack on bWAPP. <br>
 Use nmap to scan the network and identify the ports that are running the http and mysql services. The ports must be OPEN.<br>
 1) In the Browser turn on foxy proxy and open the Burp Suite App<br>
 2) Insert random credentials to intercept the http request GET on Burp and send it to the intruder. In Positions tab u can select the Payload for decode it (check the type of decoding).<br>
-<img src="request.png" width=100% height="auto"><br>
+<img src="request.png" width=80% height="auto"><br>
 3) Use the add button to replace the credentials in the http request with a parameter<br>
-<img src="request_wvar.png" width=100% height="auto"><br>
+<img src="request_wvar.png" width=80% height="auto"><br>
 4) Navigate to the Payloads tab and load the wordlist of passwords. In Payload Processing, add the Prefix "admin:" and the encoding option<br>
 5) Click the button <b>Start attack!</b><br><br>
 
 If your wordlist matches, u will get the status code 200 or 301, check the response and send it to the decoder. Finaly, u can decode the payload to have explicit credentials. <br>
-<img src="result.png" width=100% height="auto"><br>
+<img src="result.png" width=80% height="auto"><br>
 
 ## Dictionary Attack with Hydra
 We perform the attack on bWAPP. <br>
@@ -49,11 +49,11 @@ Use nmap to scan the network and identify the ports that are running the http an
 We need the username and password variables to perform dictionary attack with Hydra. <br>
 1) Analyze the html page to search the variables and create two files, one with usernames and one with the passwords.
 <br>
-<img src="html_login.png" width=100% height="auto"><br>
+<img src="html_login.png" width=80% height="auto"><br>
 2) Perform the attack, (placeholder will take the value from the wordlist) <br>
 Use the command: - hydra -L "<b>wordlist_username</b>" -P "<b>wordlist_password</b>" "<b>ip-webapp</b>" http-post-form "/login.php:login=<b>^USER^</b>&password=<b>^PASS^</b>&security_level=0&form=submit:Invalid!" <br>
 If something matches, u will get a valid password. <br>
-<img src="result1.png" width=100% height="auto"><br>
+<img src="result1.png" width=80% height="auto"><br>
 
 ## Dictionary Attack with ZAProxy
 We perform the attack on bWAPP. <br>
@@ -61,13 +61,13 @@ We perform the attack on bWAPP. <br>
 Use nmap to scan the network and identify the ports that are running the http and mysql services. The ports must be OPEN.<br>
 1) Launch owasp ZAP application and insert random credentials to the login form to get the http request.<br>
 2) Navigate to the directory js in sites tab and <b>click on the http POST request -> right click-> attack -> fuzzer.</b><br>
-<img src="loginzap.png" width=100% height="auto"><br>
+<img src="loginzap.png" width=80% height="auto"><br>
 3) Select the value of the login variable and click the add button to add your personal wordlist<br>
 4) Select the value of the password variable and click the add button to add your personal wordlist<br>
 5) <b>Click Start Fuzzer</b>
 <br>
 If something matches, u will get a status code 200 or 302, the credentials are in the payload column.<br>
-<img src="result2.png" width=100% height="auto"><br>
+<img src="result2.png" width=80% height="auto"><br>
 
 #Author
 <b>Xiao Li Savio Feng</b>
